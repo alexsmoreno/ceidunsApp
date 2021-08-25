@@ -53,6 +53,11 @@ public class PagosController {
          List<Horario> listHorario = horarioService.listarHorario();
          List<Niveles> listNiveles = nivelService.listarNiveles();
          List<Ciclos> listCiclos = cicloService.listarCiclos();
+         // -- cargar como lista 
+           // -- LisTa pagos
+         
+         
+         
          
          model.addAttribute("pago",pago);
          model.addAttribute("idiomas",listIdiomas);
