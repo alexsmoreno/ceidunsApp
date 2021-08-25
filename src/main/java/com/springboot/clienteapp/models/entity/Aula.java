@@ -22,12 +22,13 @@ import javax.persistence.Table;
 public class Aula implements Serializable{
     
    private static final long serialVersionUID = 1L;
-    @Id
+    
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
+    @Id
     private Long Id;
-    @Column(name="aula")
-    private String aula;
+  
+    private String Aula;
 
     public Long getId() {
         return Id;
@@ -38,16 +39,16 @@ public class Aula implements Serializable{
     }
 
     public String getAula() {
-        return aula;
+        return Aula;
     }
      
     public void setAula(String aula) {
-        this.aula = "Aula "+ aula;
+        this.Aula =  aula;
     }
 
     @Override
     public String toString() {
-        return "Aula{" + "id=" + Id + ", aula=" + aula + '}';
+        return "Aula{" + "id=" + Id + ", aula=" + Aula + '}';
     }
     
     

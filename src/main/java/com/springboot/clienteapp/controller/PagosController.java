@@ -43,6 +43,10 @@ public class PagosController {
     
     
     //--- implementar metodo save()
+    @GetMapping("/")
+    public String showForm(){
+        return "/views/Pagos/form";
+    }
     
     
     
