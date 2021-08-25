@@ -1,16 +1,48 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="plantilla/template :: head">
     </head>
     <body>
-        <div>TODO write content</div>
+        <header th:replace="plantilla/template :: header"></header>
+
+        <div class="container">		
+            <h1 th:text="${titulo}"></h1>		
+        </div>
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Idioma</th>
+                        <th scope="col">Ciclo</th>
+                        <th scope="col">Nivel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="list:${listPago}">
+                        <th scope="row" th:text="${list.id}"></th>
+                        <td th:text="${list.dni}"></td>
+                        <td th:text="${list.nombres}"></td>
+                        <td th:text="${list.correo}"></td>
+                        <td th:text="${list.codigoEstudiante}"></td>
+                        <td th:text="${list.idioma.Idioma}"></td>
+                        <td th:text="${list.ciclos.ciclo}"></td>
+                        <td th:text="${list.niveles.nivel}"></td>
+
+                    </tr>
+
+                </tbody>
+            </table> 
+
+
+        </div>
+
+        <footer th:replace="plantilla/template :: footer"></footer>
+
     </body>
 </html>

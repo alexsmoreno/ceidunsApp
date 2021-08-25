@@ -56,9 +56,6 @@ public class PagosController {
          // -- cargar como lista 
            // -- LisTa pagos
          
-         
-         
-         
          model.addAttribute("pago",pago);
          model.addAttribute("idiomas",listIdiomas);
          model.addAttribute("horario",listHorario);
@@ -77,6 +74,16 @@ public class PagosController {
         return "redirect:/views/Pagos/";
      }
       
+      @GetMapping("/showPagos")
+     public String showPago(Model model){
+         List<Pagos> listPagos = pagoPagosservice.listarPagos();
+         model.addAttribute("listPago",listPagos);
       
+         return "/views/Pagos/show";
+     }
+     
+     
+     
+     
       
 }
