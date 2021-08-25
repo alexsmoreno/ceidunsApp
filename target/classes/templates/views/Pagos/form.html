@@ -1,42 +1,120 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="plantilla/template :: head">
-</head>
-<body>
-	
-	
-    <div class="container">	  
-		<h1 th:text="${titulo}"></h1>	
-    <form th:action="@{/views/aulas/save}" th:object="${aula}" method="post">  
+    <head th:replace="plantilla/template :: head">
+    </head>
+    <body>
 
-     	                <div class="form-group row">
-				<label class="col-md-2" for="aula">Aula:</label> 
-				<input type="text" th:field="*{aula}" class="form-control form-control-sm col-md-6" id="aula"
-					placeholder="N° Aula"> 
-					<small>
-					</small>
-			</div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
 
-             	<div class="card-footer bg-dark">
-				<input type="submit" class="btn btn-primary btn-sm" value="Guardar">
-			</div>
+        <div class="container">	  
+            <div class="card bg-light">
+                <div class="card-header bg-danger text-white" th:text="${titulo}"></div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Nombre" required="">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Apellidos" required="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="DNI" required="">
+                            </div>
+                            <div class="col">
+                                <input type="email" class="form-control" placeholder="Correo ceiduns@gmail.com" required="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Codigo estudiante Opcional" >
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Edad" required="">
+                            </div>
+                        </div>
+                        <br>
+                        <h5>Idioma</h5>
+                        <div class="p-3 mb-2 bg-white text-dark">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="c" for="">Seleccionar Idioma:</label>
+                                    <select class="form-control" required=""> 
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label class="c" for="">Seleccionar Nivel:</label>
+                                    <select class="form-control" required=""> 
+                                    </select>
+                                </div>
+                            </div>  
+                            <div class="row">
+                                <div class="col">
+                                    <label class="c" for="">Seleccionar Ciclo:</label>
+                                    <select class="form-control" required=""> 
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label class="c" for="">Seleccionar Horario:</label>
+                                    <select class="form-control" required=""> 
+                                    </select>
+                                </div>
+                            </div>  
+                        </div>
+                        <h5>Datos de Pago</h5>
+                        <div class="p-3 mb-2 bg-white text-dark">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Fecha Operacion 02/01/2021" >
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Hora Operacion" required="">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Número Operacion" required="">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Monto Pagado S/" required="">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <select class="form-control" required=""> 
+                                        <option selected>Seleccionar Tipo Pago</option>
+                                        <option value="1">Multired</option>
+                                        <option value="2">Multired virtual</option>
+                                        <option value="3">Agencia Bancaria</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Nombre de quien Pago" required="">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="DNI" required="">
+                                </div>
+                                <div class="col">
+                                </div>
+                            </div>
+                        </div>
 
-	<footer th:replace="plantilla/template :: footer"></footer>
-
-</body>
+                        <br>
+                        <div class="card-footer bg-danger">
+                            <input type="submit" class="btn btn-outline-light btn-sm" value="Guardar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="plantilla/template :: footer"></footer>
+    </body>
 </html>

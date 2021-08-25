@@ -44,7 +44,8 @@ public class PagosController {
     
     //--- implementar metodo save()
     @GetMapping("/")
-    public String showForm(){
+    public String showForm(Model model){
+        model.addAttribute("titulo","REGISTRO DE PAGO");
         return "/views/Pagos/form";
     }
     
