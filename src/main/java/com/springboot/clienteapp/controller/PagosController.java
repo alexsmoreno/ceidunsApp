@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -58,30 +60,16 @@ public class PagosController {
          model.addAttribute("nivel",listNiveles);
          model.addAttribute("ciclo",listCiclos);
          model.addAttribute("titulo","REGISTRO DE PAGO");
-        
-        
         return "/views/Pagos/form";
     }
     
-    
+                                       
     
       
-     @GetMapping("/create")
-     public String crear(Model model){
-         Pagos pago = new Pagos();
-         List<Idioma> listIdiomas = idiomaService.listarIdiomas();
-         List<Horario> listHorario = horarioService.listarHorario();
-         List<Niveles> listNiveles = nivelService.listarNiveles();
-         List<Ciclos> listCiclos = cicloService.listarCiclos();
-         
-         model.addAttribute("pago",pago);
-         model.addAttribute("idiomas",listIdiomas);
-         model.addAttribute("horario",listHorario);
-         model.addAttribute("nivel",listNiveles);
-         model.addAttribute("ciclo",listCiclos);
-         
-         
-        return "/views/Pagos/form";
+     @PostMapping("/save")
+     public String guardar(@ModelAttribute Pagos pago){
+       pagoPagosservice.guardar(pago);
+        return "redirect:/views/Pagos/";
      }
       
       

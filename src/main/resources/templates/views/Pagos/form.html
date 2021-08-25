@@ -9,31 +9,31 @@
             <div class="card bg-light">
                 <div class="card-header bg-danger text-white" th:text="${titulo}"></div>
                 <div class="card-body">
-                    <form>
+                    <form   th:action="@{/views/Pagos/save}" th:object="${pago}" method="post">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Nombre" required="">
+                                <input type="text" th:field="*{nombres}" class="form-control" placeholder="Nombre" required="">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Apellidos" required="">
+                                <input type="text" th:field="*{apellidos}" class="form-control" placeholder="Apellidos" required="">
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="DNI" required="">
+                                <input type="text"  th:field="*{dni}" class="form-control" placeholder="DNI" required="">
                             </div>
                             <div class="col">
-                                <input type="email" class="form-control" placeholder="Correo ceiduns@gmail.com" required="">
+                                <input type="email" th:field="*{correo}" class="form-control" placeholder="Correo ceiduns@gmail.com" required="">
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Codigo estudiante Opcional" >
+                                <input type="text" th:field="*{codigoEstudiante}" class="form-control" placeholder="Codigo estudiante Opcional" >
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Edad" required="">
+                                <input type="text" th:field="*{edad}"  class="form-control" placeholder="Edad" required="">
                             </div>
                         </div>
                         <br>
@@ -42,8 +42,8 @@
                         <div class="p-3 mb-2 bg-white text-dark">
                             <div class="row">
                                 <div class="col">
-                                    <label  class="" for="">Seleccionar Idioma:</label>
-                                    <select  class="form-control" required=""> 
+                                    <label   class="" for="">Seleccionar Idioma:</label>
+                                    <select   th:field="*{idioma}" class="form-control" required=""> 
                                      <option th:each="I:${idiomas}"
 						th:value="${I.id}"
 						th:text="${I.Idioma}"		
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col">
                                     <label class="" for="">Seleccionar Nivel:</label>
-                                    <select class="form-control" required=""> 
+                                    <select th:field="*{niveles}" class="form-control" required=""> 
                                         <option th:each="Ni:${nivel}"
 						th:value="${Ni.id}"
 						th:text="${Ni.nivel}"		
@@ -63,7 +63,7 @@
                             <div class="row">
                                 <div class="col">
                                     <label class="" for="">Seleccionar Ciclo:</label>
-                                    <select class="form-control" required=""> 
+                                    <select th:field="*{ciclos}" class="form-control" required=""> 
                                         <option th:each="ci:${ciclo}"
 						th:value="${ci.id}"
 						th:text="${ci.ciclo}"		
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="col">
                                     <label class="" for="">Seleccionar Horario:</label>
-                                    <select class="form-control" required=""> 
+                                    <select th:field="*{horario}" class="form-control" required=""> 
                                           <option th:each="h:${horario}"
 						th:value="${h.id}"
 						th:text="${h.Horario}"		
@@ -86,39 +86,37 @@
                         <div class="p-3 mb-2 bg-white text-dark">
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Fecha Operacion 02/01/2021" >
+                                    <input th:field="*{fechaPago}" type="text" class="form-control" placeholder="Fecha Operacion 02/01/2021" >
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Hora Operacion" required="">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Número Operacion" required="">
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Monto Pagado S/" required="">
+                                    <input th:field="*{horaOperacion}" type="text" class="form-control" placeholder="Hora Operacion" required="">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col">
-                                    <select class="form-control" required=""> 
-                                        <option selected>Seleccionar Tipo Pago</option>
-                                        <option value="1">Multired</option>
-                                        <option value="2">Multired virtual</option>
-                                        <option value="3">Agencia Bancaria</option>
+                                    <input th:field="*{numeroOperacion}" type="text" class="form-control" placeholder="Número Operacion" required="">
+                                </div>
+                                <div class="col">
+                                    <input th:field="*{montoPago}" type="text" class="form-control" placeholder="Monto Pagado S/" required="">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                    <select th:field="*{tipoPago}" class="form-control" required=""> 
+                                     <option th:value="1" th:text="Multired"/>
+				    				
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Nombre de quien Pago" required="">
+                                    <input th:field="*{personaPago}" type="text" class="form-control" placeholder="Nombre de quien Pago" required="">
                                 </div>
                             </div>
                             <br>
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="DNI" required="">
+                                    <input th:field="*{perosnaDNI}" type="text" class="form-control" placeholder="DNI" required="">
                                 </div>
                                 <div class="col">
                                 </div>

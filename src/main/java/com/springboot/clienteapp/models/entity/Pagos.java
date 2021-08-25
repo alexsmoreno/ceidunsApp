@@ -32,6 +32,15 @@ public class Pagos implements Serializable{
     private String apellidos;
     private String correo;
     private String codigoEstudiante;
+    private String edad;
+    // -- Datos de pago
+    private String fechaPago;
+    private String horaOperacion;
+    private String numeroOperacion;
+    private String montoPago;
+    private String tipoPago;
+    private String personaPago;
+    private String perosnaDNI;
     
      // -- relaciones
     
@@ -47,8 +56,6 @@ public class Pagos implements Serializable{
        @ManyToOne
     @JoinColumn(name = "horario_id")
     private Horario horario;
-    
-    // falta poner los datos de pago
 
     public Long getId() {
         return id;
@@ -98,6 +105,78 @@ public class Pagos implements Serializable{
         this.codigoEstudiante = codigoEstudiante;
     }
 
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(String fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public String getHoraOperacion() {
+        return horaOperacion;
+    }
+
+    public void setHoraOperacion(String horaOperacion) {
+        this.horaOperacion = horaOperacion;
+    }
+
+    public String getNumeroOperacion() {
+        return numeroOperacion;
+    }
+
+    public void setNumeroOperacion(String numeroOperacion) {
+        this.numeroOperacion = numeroOperacion;
+    }
+
+    public String getMontoPago() {
+        return montoPago;
+    }
+
+    public void setMontoPago(String montoPago) {
+        this.montoPago = montoPago;
+    }
+
+    public String getTipoPago() {
+        return tipoPago;
+    }
+
+    public void setTipoPago(String tipoPago) {
+        String tipo="";
+        if(tipoPago.equals("1")){
+            tipo ="Multired";
+        }else if(tipoPago.equals("2")){
+           tipo ="Multired Virtual"; 
+        }else if(tipoPago.equals("3")){
+            tipo ="Agencia Bancaria"; 
+        }
+        this.tipoPago = tipo;
+    }
+
+    public String getPersonaPago() {
+        return personaPago;
+    }
+
+    public void setPersonaPago(String personaPago) {
+        this.personaPago = personaPago;
+    }
+
+    public String getPerosnaDNI() {
+        return perosnaDNI;
+    }
+
+    public void setPerosnaDNI(String perosnaDNI) {
+        this.perosnaDNI = perosnaDNI;
+    }
+
     public Idioma getIdioma() {
         return idioma;
     }
@@ -130,12 +209,7 @@ public class Pagos implements Serializable{
         this.horario = horario;
     }
     
-    
-    
-    
-    
-    
-    
+
     
     
 }
