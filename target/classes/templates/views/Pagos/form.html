@@ -37,33 +37,51 @@
                             </div>
                         </div>
                         <br>
+                        
                         <h5>Idioma</h5>
                         <div class="p-3 mb-2 bg-white text-dark">
                             <div class="row">
                                 <div class="col">
-                                    <label class="c" for="">Seleccionar Idioma:</label>
-                                    <select class="form-control" required=""> 
+                                    <label  class="" for="">Seleccionar Idioma:</label>
+                                    <select  class="form-control" required=""> 
+                                     <option th:each="I:${idiomas}"
+						th:value="${I.id}"
+						th:text="${I.Idioma}"		
+					/>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label class="c" for="">Seleccionar Nivel:</label>
+                                    <label class="" for="">Seleccionar Nivel:</label>
                                     <select class="form-control" required=""> 
+                                        <option th:each="Ni:${nivel}"
+						th:value="${Ni.id}"
+						th:text="${Ni.nivel}"		
+					/>
                                     </select>
                                 </div>
                             </div>  
                             <div class="row">
                                 <div class="col">
-                                    <label class="c" for="">Seleccionar Ciclo:</label>
+                                    <label class="" for="">Seleccionar Ciclo:</label>
                                     <select class="form-control" required=""> 
+                                        <option th:each="ci:${ciclo}"
+						th:value="${ci.id}"
+						th:text="${ci.ciclo}"		
+					/>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label class="c" for="">Seleccionar Horario:</label>
+                                    <label class="" for="">Seleccionar Horario:</label>
                                     <select class="form-control" required=""> 
+                                          <option th:each="h:${horario}"
+						th:value="${h.id}"
+						th:text="${h.Horario}"		
+					/>
                                     </select>
                                 </div>
                             </div>  
                         </div>
+                        
                         <h5>Datos de Pago</h5>
                         <div class="p-3 mb-2 bg-white text-dark">
                             <div class="row">

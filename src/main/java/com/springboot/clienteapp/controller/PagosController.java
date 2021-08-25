@@ -45,7 +45,21 @@ public class PagosController {
     //--- implementar metodo save()
     @GetMapping("/")
     public String showForm(Model model){
-        model.addAttribute("titulo","REGISTRO DE PAGO");
+        
+          Pagos pago = new Pagos();
+         List<Idioma> listIdiomas = idiomaService.listarIdiomas();
+         List<Horario> listHorario = horarioService.listarHorario();
+         List<Niveles> listNiveles = nivelService.listarNiveles();
+         List<Ciclos> listCiclos = cicloService.listarCiclos();
+         
+         model.addAttribute("pago",pago);
+         model.addAttribute("idiomas",listIdiomas);
+         model.addAttribute("horario",listHorario);
+         model.addAttribute("nivel",listNiveles);
+         model.addAttribute("ciclo",listCiclos);
+         model.addAttribute("titulo","REGISTRO DE PAGO");
+        
+        
         return "/views/Pagos/form";
     }
     

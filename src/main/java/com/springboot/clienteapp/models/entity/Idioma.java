@@ -21,28 +21,29 @@ import javax.persistence.Table;
 @Table(name="idioma")
 public class Idioma implements Serializable {
     
-  private static final long serialVersionUID = 1L;
+         private static final long serialVersionUID = 1L;
 	@Id
         @GeneratedValue(strategy=GenerationType.IDENTITY)
         private Long id;
-        private String idioma;
+        private String Idioma;
 
-    public Long getIdIdioma() {
+    public Long getId() {
         return id;
     }
 
-    public void setIdIdioma(Long idIdioma) {
-        this.id = idIdioma;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIdioma() {
-        return idioma;
+        return Idioma;
     }
 
     public void setIdioma(String idioma) {
-        this.idioma = idioma;
+        this.Idioma = idioma;
     }
 
+   
  
         
         
