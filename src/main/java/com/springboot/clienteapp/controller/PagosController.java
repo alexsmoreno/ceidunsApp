@@ -10,12 +10,15 @@ import com.springboot.clienteapp.models.entity.Horario;
 import com.springboot.clienteapp.models.entity.Idioma;
 import com.springboot.clienteapp.models.entity.Niveles;
 import com.springboot.clienteapp.models.entity.Pagos;
+import com.springboot.clienteapp.models.entity.TipoPago;
 import com.springboot.clienteapp.models.service.ICicloService;
 import com.springboot.clienteapp.models.service.IHorarioService;
 import com.springboot.clienteapp.models.service.IIdiomaService;
 import com.springboot.clienteapp.models.service.INivelService;
 import com.springboot.clienteapp.models.service.IPagosService;
+import java.util.ArrayList;
 import java.util.List;
+import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,10 +52,19 @@ public class PagosController {
     public String showForm(Model model){
         
           Pagos pago = new Pagos();
+          TipoPago tipo = new TipoPago(1,"Multired");
+          TipoPago tipo2 = new TipoPago(2,"Multired virtual");
+          TipoPago tipo3 = new TipoPago(3,"Agenca Bancaria");
+          List<TipoPago> listTipo = new ArrayList<TipoPago>();
+          listTipo.add(tipo);
+          listTipo.add(tipo2);
+          listTipo.add(tipo3);
          List<Idioma> listIdiomas = idiomaService.listarIdiomas();
          List<Horario> listHorario = horarioService.listarHorario();
          List<Niveles> listNiveles = nivelService.listarNiveles();
          List<Ciclos> listCiclos = cicloService.listarCiclos();
+        
+         
          // -- cargar como lista 
            // -- LisTa pagos
          
@@ -61,6 +73,7 @@ public class PagosController {
          model.addAttribute("horario",listHorario);
          model.addAttribute("nivel",listNiveles);
          model.addAttribute("ciclo",listCiclos);
+         model.addAttribute("listTipoP",listTipo);
          model.addAttribute("titulo","REGISTRO DE PAGO");
         return "/views/Pagos/form";
     }
