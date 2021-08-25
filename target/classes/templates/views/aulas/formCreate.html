@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+	
+    <div class="container">	  
+      
+     <a class="btn btn-primary btn-sm" th:href="@{/views/aulas/}"
+			th:text="'Lista Aulas'" title="Crear Nuevo Registro">
+		</a>  
+		
+		<h1 th:text="${titulo}"></h1>	
+    <form th:action="@{/views/aulas/save}" th:object="${aula}" method="post">  
+
+     	<div class="form-group row">
+                        <input type="hidden" th:field="*{id}">
+				<label class="col-md-2" for="aula">Aula:</label> 
+				<input type="text" th:field="*{aula}" class="form-control form-control-sm col-md-6" id="aula"
+					placeholder="N° Aula"> 
+					<small>
+					</small>
+			</div>
+
+             	<div class="card-footer bg-dark">
+				<input type="submit" class="btn btn-primary btn-sm" value="Guardar">
+			</div>
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
+</html>
